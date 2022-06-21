@@ -4,6 +4,7 @@ namespace Ebay\Commerce\Charity\Api;
 
 use Ebay\Commerce\Charity\Model\CharityOrg;
 use Ebay\Commerce\Charity\Model\CharitySearchResponse;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Org extends AbstractAPI
 {
@@ -19,9 +20,9 @@ class Org extends AbstractAPI
      *                               ID.<br /><br /><b>Valid Values:</b> <code>EBAY_GB</code> and
      *                               <code>EBAY_US</code>
      *
-     * @return CharityOrg
+     * @return CharityOrg|UnexpectedResponse
      */
-    public function get(string $charity_org_id, array $headers = []): CharityOrg
+    public function get(string $charity_org_id, array $headers = [])
     {
         return $this->request(
         'getCharityOrg',
@@ -66,9 +67,9 @@ class Org extends AbstractAPI
      *                       ID.<br /><br /><b>Valid Values:</b> <code>EBAY_GB</code> and
      *                       <code>EBAY_US</code>
      *
-     * @return CharitySearchResponse
+     * @return CharitySearchResponse|UnexpectedResponse
      */
-    public function gets(array $queries = [], array $headers = []): CharitySearchResponse
+    public function gets(array $queries = [], array $headers = [])
     {
         return $this->request(
         'getCharityOrgs',
@@ -97,9 +98,9 @@ class Org extends AbstractAPI
      *                       ID.<br /><br /><b>Valid Values:</b> <code>EBAY_GB</code> and
      *                       <code>EBAY_US</code>
      *
-     * @return CharityOrg
+     * @return CharityOrg|UnexpectedResponse
      */
-    public function getByLegacyId(array $queries = [], array $headers = []): CharityOrg
+    public function getByLegacyId(array $queries = [], array $headers = [])
     {
         return $this->request(
         'getCharityOrgByLegacyId',
